@@ -53,8 +53,14 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: ' +
+    const winner = calculateWinner(this.state.squares);
+    let status;
+    if (winner) {
+      status = 'winner: ' + winner;
+    } else {
+      status = 'Next player: ' +
     (this.state.xIsNext ? 'X' : 'O');
+    }
 
     return (
       <div>
